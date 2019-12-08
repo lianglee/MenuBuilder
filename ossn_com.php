@@ -33,10 +33,16 @@ function menubuilder_page_handler($pages) {
 		}
 		switch ($pages[0]) {
 				case 'submenu':
+						global $Ossn;
 						$menu        = new MenuBuilder;
 						$type        = input('type');
 						$parentMenus = $menu->getMenusLevel(1, $type);
-						if ($parentMenus && !in_array($type, $menu->onlyTopLevel())) {
+						
+						//issues if language is not English #1 find a language string from value,
+						//its still not a efficent way...
+						$lang = ossn_site_settings('language');
+						$locale_string = array_flip($Ossn->localestr[$lang]);
+						if($parentMenus && !in_array($type, $menu->onlyTopLevel())) {
 								$PMS = array(
 										""
 								);
@@ -47,9 +53,14 @@ function menubuilder_page_handler($pages) {
 										$translation = str_replace(array(
 												'_',
 												'-',
-												'/'
+												'/',
+												' ',
 										), ':', $pm);
-										$PMS[$pm]    = ossn_print("menubuilder:submenu:{$translation}");
+										if($type == 'admin/sidemenu'){
+											$PMS[$locale_string[$pm]] = $pm;
+										} else {
+											$PMS[$pm]    = ossn_print("menubuilder:submenu:{$translation}");
+										}
 								}
 								echo ossn_plugin_view('input/dropdown', array(
 										'name' => 'menu_subtype',

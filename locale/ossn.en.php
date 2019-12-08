@@ -43,6 +43,9 @@ $en = array(
 		'menubuilder:submenu:bpage' => 'Business Page',
 		'menubuilder:submenu:polls' => 'Polls',
 		'menubuilder:submenu:blogs' => 'Blogs',
+		'menubuilder:submenu:themes' => 'Themes',
+		'menubuilder:submenu:site:settings' => 'Site Settings',
+		'menubuilder:submenu:user:manager' => 'User Manager',
 		
 		'menubuilder:newsfeed' => 'Sidebar',
 		'menubuilder:submenu:onlytoplevel' => 'Main',
