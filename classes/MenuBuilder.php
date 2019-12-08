@@ -75,6 +75,9 @@ class MenuBuilder extends OssnObject {
 														'data-menubuilder-icon-unicode' => str_replace('\\', '', $menu->icon_unicode),
 														'parent' => $menu->menu_subtype
 												);
+												if($menu->menu_type == 'admin/sidemenu'){
+													$args['parent'] = ossn_print($menu->menu_subtype);
+												}
 												if (isset($menu->newtab) && $menu->newtab == 'yes') {
 														$args['target'] = '_blank';
 												}
