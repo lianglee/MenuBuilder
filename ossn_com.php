@@ -50,7 +50,7 @@ function menubuilder_page_handler($pages) {
 										if ($type == 'topbar_admin' && ($pm == 'help' || $pm == 'support' || $pm == 'viewsite' || $pm == 'home')) {
 												continue;
 										}
-										$translation = str_replace(array(
+										$translit = str_replace(array(
 												'_',
 												'-',
 												'/',
@@ -59,7 +59,12 @@ function menubuilder_page_handler($pages) {
 										if($type == 'admin/sidemenu'){
 											$PMS[$locale_string[$pm]] = $pm;
 										} else {
-											$PMS[$pm]    = ossn_print("menubuilder:submenu:{$translation}");
+											$translation = ossn_print("menubuilder:submenu:{$translit}");
+											if($translation == "menubuilder:submenu:{$translit}"){
+												$PMS[$pm]    = ucfirst($pm);
+											} else {
+												$PMS[$pm]    = ossn_print("menubuilder:submenu:{$translit}");												
+											}
 										}
 								}
 								echo ossn_plugin_view('input/dropdown', array(

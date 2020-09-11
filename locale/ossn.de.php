@@ -53,5 +53,6 @@ $en = array(
 		'menubuilder:submenu:configure' => 'Configure',
 		'menubuilder:submenu:links' => 'Links',
 		'menubuilder:profile:edit:tabs' => 'Profile Edit Tabs',
+
 );
-ossn_register_languages('en', $en); 
+ossn_register_languages('de', $en); 
