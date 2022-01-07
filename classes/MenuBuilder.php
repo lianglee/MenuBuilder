@@ -2,11 +2,11 @@
 /**
  * Open Source Social Network
  *
- * @package   (softlab24.com).ossn
- * @author    OSSN Core Team <info@softlab24.com>
- * @copyright 2014-2019 SOFTLAB24 LIMITED
- * @license   SOFTLAB24 LIMITED, COMMERCIAL LICENSE  https://www.softlab24.com/license/commercial-license-v1
- * @link      https://www.softlab24.com/
+ * @package   (openteknik.com).ossn
+ * @author    OSSN Core Team <info@openteknik.com>
+ * @copyright 2014-2019 OpenTeknik LLC
+ * @license   OpenTeknik LLC, COMMERCIAL LICENSE  https://www.openteknik.com/license/commercial-license-v1
+ * @link      https://www.openteknik.com/
  */
 class MenuBuilder extends OssnObject {
 		/**
@@ -72,7 +72,6 @@ class MenuBuilder extends OssnObject {
 														'href' => $menu->description,
 														'class' => "menubuilder-item-{$type}",
 														'data-menubuilder-icon' => $menu->icon_name,
-														'data-menubuilder-icon-unicode' => str_replace('\\', '', $menu->icon_unicode),
 														'parent' => $menu->menu_subtype
 												);
 												if($menu->menu_type == 'admin/sidemenu'){
@@ -90,7 +89,6 @@ class MenuBuilder extends OssnObject {
 														'href' => $menu->description,
 														'data-menubuilder-icon' => $menu->icon_name,
 														'class' => "menubuilder-item-{$type}",
-														'data-menubuilder-icon-unicode' => str_replace('\\', '', $menu->icon_unicode)
 												);
 												if (isset($menu->newtab) && $menu->newtab == 'yes') {
 														$args['target'] = '_blank';

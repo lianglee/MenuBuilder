@@ -2,11 +2,11 @@
 /**
  * Open Source Social Network
  *
- * @package   (softlab24.com).ossn
- * @author    OSSN Core Team <info@softlab24.com>
- * @copyright 2014-2019 SOFTLAB24 LIMITED
- * @license   SOFTLAB24 LIMITED, COMMERCIAL LICENSE  https://www.softlab24.com/license/commercial-license-v1
- * @link      https://www.softlab24.com/
+ * @package   (openteknik.com).ossn
+ * @author    OSSN Core Team <info@openteknik.com>
+ * @copyright 2014-2019 OpenTeknik LLC
+ * @license   OpenTeknik LLC, COMMERCIAL LICENSE  https://www.openteknik.com/license/commercial-license-v1
+ * @link      https://www.openteknik.com/
  */
 define('MenuBuilder', ossn_route()->com . 'MenuBuilder/');
 require_once(MenuBuilder . 'classes/MenuBuilder.php');
@@ -86,7 +86,7 @@ function menubuilder_page_handler($pages) {
 		}
 }
 function menu_builder_read_icons() {
-		$file = MenuBuilder . 'vendors/icons.json';
+		$file = MenuBuilder . 'vendors/icons-fa5.json';
 		if (!$file) {
 				return false;
 		}

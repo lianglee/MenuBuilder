@@ -31,7 +31,7 @@ Ossn.RegisterStartupFunction(function() {
       					$val = $(this).text();
 						$icon = $(this).attr('data-menubuilder-icon');
       					$text = $val.charAt(0).toUpperCase() + $val.slice(1);
-      					$(this).html('<i class="fa '+$icon+'"></i>'+$text);																
+      					$(this).html('<i class="'+$icon+'"></i>'+$text);																
 			};
 			$('.menubuilder-item-topbar-admin').each($replaceIcons);
 			$('.menubuilder-item-admin-sidemenu').each($replaceIcons);

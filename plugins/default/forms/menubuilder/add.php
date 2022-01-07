@@ -52,8 +52,8 @@
 <?php
 $icons = menu_builder_read_icons();
 if($icons){
-		foreach($icons as $key => $unicode){
-				echo "<li class='menubuilder-icon-select' data-icon='{$key}' data-key='{$unicode}'><i class='fa {$key}'></i></li>";	
+		foreach($icons as $data){
+				echo "<li class='menubuilder-icon-select' data-icon='{$data['type']} fa-{$data['name']}' data-key='{$data['unicode']}'><i class='{$data['type']} fa-{$data['name']}'></i></li>";	
 		}
 }
 ?>
