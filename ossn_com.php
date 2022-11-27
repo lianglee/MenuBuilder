@@ -12,13 +12,18 @@ define('MenuBuilder', ossn_route()->com . 'MenuBuilder/');
 require_once(MenuBuilder . 'classes/MenuBuilder.php');
 function menu_builder_init() {
 		ossn_register_site_settings_page('menubuilder', 'settings/admin/menubuilder');
-		ossn_register_admin_sidemenu('admin:menubuilder', 'admin:menubuilder', ossn_site_url('administrator/settings/menubuilder?mpage=list'), ossn_print('admin:sidemenu:settings'));
 		
 		ossn_extend_view('css/ossn.default', 'menubuilder/css');
 		ossn_extend_view('ossn/site/head', 'menubuilder/css_head');
 		ossn_extend_view('css/ossn.admin.default', 'menubuilder/css.admin');
 		ossn_extend_view('js/opensource.socialnetwork', 'menubuilder/js.main');
 		if (ossn_isAdminLoggedin()) {
+				ossn_register_menu_item('admin/sidemenu', array(
+						'name'   => 'admin:menubuilder',
+						'text'   => ossn_print('admin:menubuilder'),
+						'href'   => ossn_site_url('administrator/settings/menubuilder?mpage=list'),
+						'parent' => 'admin:sidemenu:settings',
+				));				
 				ossn_register_page('menubuilder', 'menubuilder_page_handler');
 				ossn_register_action('menubuilder/add', MenuBuilder . 'actions/add.php');
 				ossn_register_action('menubuilder/delete', MenuBuilder . 'actions/delete.php');
