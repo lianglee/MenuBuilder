@@ -26,11 +26,19 @@ function menu_builder_init() {
 				));				
 				ossn_register_page('menubuilder', 'menubuilder_page_handler');
 				ossn_register_action('menubuilder/add', MenuBuilder . 'actions/add.php');
+				ossn_register_action('menubuilder/edit', MenuBuilder . 'actions/edit.php');
 				ossn_register_action('menubuilder/delete', MenuBuilder . 'actions/delete.php');
 		}
 		
 		$menu = new MenuBuilder();
 		$menu->buildMenus();
+}
+function menubuilder_get_item($guid){
+		$object = ossn_get_object($guid);
+		if($object && $object->subtype == 'menubuilder:menuitem'){
+				return arrayObject($object, 'MenuBuilder');	
+		}
+		return false;
 }
 function menubuilder_page_handler($pages) {
 		if (empty($pages[0])) {

@@ -10,8 +10,8 @@ Ossn.RegisterStartupFunction(function() {
 					}
 			});
 			$('body').on('click', '#menu-builder-next', function(){
-						$('.menubuilder-main-form').addClass("hidden");
-						$('.menu-builder-icons').removeClass('hidden');
+						$('.menubuilder-main-form').addClass("d-none");
+						$('.menu-builder-icons').removeClass('d-none');
 			});		
 			$('body').on('change', '#menu-select-type', function(){
 					$type = $(this).val();											 

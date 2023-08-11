@@ -11,6 +11,7 @@ $count = $menu->getAll(array(
     <th scope="col"><?php echo ossn_print('menubuilder:title');?></th>
     <th scope="col"><?php echo ossn_print('menubuilder:admin:name');?></th>
     <th scope="col"><?php echo ossn_print('menubuilder:submenu');?></th>
+    <th scope="col"><?php echo ossn_print('edit');?></th>
     <th scope="col"><?php echo ossn_print('menubuilder:delete');?></th>
   </tr>
   <?php
@@ -23,6 +24,7 @@ $count = $menu->getAll(array(
     <td><a target="_blank" href="<?php echo $menu->description;?>"><i class="fa <?php echo $menu->icon_name;?>"></i> <?php echo $menu->title;?></a></td>
     <td><?php echo ossn_print("menubuilder:{$type}");?></td>
     <td><?php echo ossn_print("menubuilder:submenu:{$subtype}");?></td>
+    <td><a class="btn btn-success btn-sm" href="<?php echo ossn_site_url("administrator/settings/menubuilder?mpage=edit&guid={$menu->guid}",);?>"><?php echo ossn_print('edit');?></a></td>
     <td><a class="btn btn-danger btn-sm" href="<?php echo ossn_site_url("action/menubuilder/delete?guid={$menu->guid}", true);?>"><?php echo ossn_print('menubuilder:delete');?></a></td>
   </tr>
   <?php
