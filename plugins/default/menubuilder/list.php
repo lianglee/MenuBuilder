@@ -21,7 +21,7 @@ $count = $menu->getAll(array(
 			$subtype = str_replace(array('_', '-', '/'), array('', ':', ':'), $menu->menu_subtype);
 		?>
   <tr>
-    <td><a target="_blank" href="<?php echo $menu->description;?>"><i class="fa <?php echo $menu->icon_name;?>"></i> <?php echo $menu->title;?></a></td>
+    <td><a target="_blank" href="<?php echo $menu->description;?>"><i class="<?php echo $menu->icon_name;?>"></i> <?php echo $menu->title;?></a></td>
     <td><?php echo ossn_print("menubuilder:{$type}");?></td>
     <td><?php echo ossn_print("menubuilder:submenu:{$subtype}");?></td>
     <td><a class="btn btn-success btn-sm" href="<?php echo ossn_site_url("administrator/settings/menubuilder?mpage=edit&guid={$menu->guid}",);?>"><?php echo ossn_print('edit');?></a></td>
