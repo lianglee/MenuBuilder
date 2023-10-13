@@ -35,7 +35,15 @@ Ossn.RegisterStartupFunction(function() {
 			};
 			$('.menubuilder-item-topbar-admin').each($replaceIcons);
 			$('.menubuilder-item-admin-sidemenu').each($replaceIcons);
-			$('[class*=menu-topbar-dropdown-menubuilder]').each($replaceIcons);
 			$('.menubuilder-item-footer').each($replaceIcons);
+			
+			//special case
+			$('[class*=menu-topbar-dropdown-menubuilder]').each(function($element){
+						$val = $(this).text();
+						$icon = $(this).attr('data-menubuilder-icon');
+      					$text = $val.charAt(0).toUpperCase() + $val.slice(1);
+						$(this).html('<i class="'+$icon+'"></i>'+$text);																
+			});
+
 	});
 });
