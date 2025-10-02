@@ -29,7 +29,6 @@ function menu_builder_init() {
 				ossn_register_action('menubuilder/edit', MenuBuilder . 'actions/edit.php');
 				ossn_register_action('menubuilder/delete', MenuBuilder . 'actions/delete.php');
 		}
-		
 		$menu = new MenuBuilder();
 		$menu->buildMenus();
 }
@@ -50,11 +49,10 @@ function menubuilder_page_handler($pages) {
 						$menu        = new MenuBuilder;
 						$type        = input('type');
 						$parentMenus = $menu->getMenusLevel(1, $type);
-						
 						//issues if language is not English #1 find a language string from value,
 						//its still not a efficent way...
 						$lang = ossn_site_settings('language');
-						$locale_string = array_flip($Ossn->localestr[$lang]);
+						$locale_string = $Ossn->localestr[$lang];
 						if($parentMenus && !in_array($type, $menu->onlyTopLevel())) {
 								$PMS = array(
 										""
@@ -63,14 +61,15 @@ function menubuilder_page_handler($pages) {
 										if ($type == 'topbar_admin' && ($pm == 'help' || $pm == 'support' || $pm == 'viewsite' || $pm == 'home')) {
 												continue;
 										}
-										$translit = str_replace(array(
+										$normalize = array(
 												'_',
 												'-',
 												'/',
 												' ',
-										), ':', $pm);
+										);
+										$translit = str_replace($normalize, ':', $pm);										
 										if($type == 'admin/sidemenu'){
-											$PMS[$locale_string[$pm]] = $pm;
+											$PMS[$pm] = $locale_string[$pm];
 										} else {
 											$translation = ossn_print("menubuilder:submenu:{$translit}");
 											if($translation == "menubuilder:submenu:{$translit}"){

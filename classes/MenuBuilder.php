@@ -74,9 +74,6 @@ class MenuBuilder extends OssnObject {
 														'data-menubuilder-icon' => $menu->icon_name,
 														'parent' => $menu->menu_subtype
 												);
-												if($menu->menu_type == 'admin/sidemenu'){
-													$args['parent'] = ossn_print($menu->menu_subtype);
-												}
 												if (isset($menu->newtab) && $menu->newtab == 'yes') {
 														$args['target'] = '_blank';
 												}
@@ -101,7 +98,8 @@ class MenuBuilder extends OssnObject {
 		public static function onlyTopLevel() {
 				return array(
 						'footer',
-						'topbar_dropdown'
+						'topbar_dropdown',
+						'profile/edit/tabs',
 				);
 		}
 		public static function ignoreMenus() {
